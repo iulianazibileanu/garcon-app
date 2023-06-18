@@ -1,0 +1,27 @@
+div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+div a {
+  background-color: #f0f0f0;
+  padding: 0.3rem 1rem;
+  margin: 0.2rem 0.15rem;
+  border-radius: 10rem;
+  font-weight: 600;
+}
+
+div a:hover {
+  background-color: gray;
+  color: whitesmoke;
+}
+
+a:visited {
+  color:gray;
+}
+
+div a:active {
+  color: #e72929;
+  background-color: black;
+}
