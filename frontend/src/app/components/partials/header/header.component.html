@@ -1,6 +1,6 @@
 <header>
   <div class="container">
-    <a routerLink="/" class="logo">The Grill</a>
+    <a routerLink="/" class="logo">Garcon</a>
     <nav>
       <ul>
         <li *ngIf="!isAuth">
@@ -10,14 +10,14 @@
           <a routerLink="/dashboard">{{ user.name }}</a>
           <div class="menu">
             <a routerLink="/profile">Profil</a>
-            <a routerLink="/orders">Orders</a>
+            <a routerLink="/orders">Comenzi</a>
             <a (click)="logout()">Logout</a>
           </div>
         </li>
         <li>
-          <a routerLink="/cart-page"
-            >Cosul meu <span *ngIf="cartQuantity">{{ cartQuantity }}</span></a
-          >
+          <a routerLink="/cart-page">
+            Cosul meu <span *ngIf="cartQuantity">{{ cartQuantity }}</span>
+          </a>
         </li>
       </ul>
     </nav>

@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../shared/models/User';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { USER_LOGIN_URL } from '../shared/constants/urls';
+import { HttpClient } from '@angular/common/http';
+import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
 import { ToastrService } from 'ngx-toastr';
+import { IUserRegister } from '../shared/interfaces/IUserRegister';
 
 const USER_KEY = 'User';
 @Injectable({
@@ -13,8 +14,13 @@ const USER_KEY = 'User';
 export class UserService {
   private userSubject = new BehaviorSubject<User>(this.getUserFromLocalStorage());
   public userObservable:Observable<User>;
+
   constructor(private http:HttpClient, private toastrService:ToastrService) {
     this.userObservable = this.userSubject.asObservable();
+  }
+
+  public get currentUser():User{
+    return this.userSubject.value;
   }
 //I vine de la interfata - diferita fata de clasa prin faptul ca nu poate fi instantiata/ nu pot sa fac new User()
   login(userLogin:IUserLogin):Observable<User>{
@@ -30,6 +36,25 @@ export class UserService {
         },
         error: (errorResponse) => {
           this.toastrService.error(errorResponse.error, 'Autentificarea a esuat');
+        }
+      })
+    );
+  }
+
+  register(userRegiser:IUserRegister): Observable<User>{
+    return this.http.post<User>(USER_REGISTER_URL, userRegiser).pipe(
+      tap({
+        next: (user) => {
+          this.setUserToLocalStorage(user);
+          this.userSubject.next(user);
+          this.toastrService.success(
+            `Bine ai venit, ${user.name}`,
+            'Inregistrare reusita'
+          )
+        },
+        error: (errorResponse) => {
+          this.toastrService.error(errorResponse.error,
+            'Inregistrarea a esuat')
         }
       })
     )

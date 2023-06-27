@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="details">
+    <app-title title="Inregistrare"></app-title>
+    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+      <text-input
+        [control]="fc.name"
+        [showErrorsWhen]="isSubmitted"
+        label="Nume"
+      >
+      </text-input>
+
+      <text-input
+        [control]="fc.email"
+        [showErrorsWhen]="isSubmitted"
+        label="Email"
+        type="email"
+      >
+      </text-input>
+
+      <text-input
+        [control]="fc.password"
+        [showErrorsWhen]="isSubmitted"
+        label="Parola"
+        type="password"
+      >
+      </text-input>
+
+      <text-input
+        [control]="fc.confirmPassword"
+        [showErrorsWhen]="isSubmitted"
+        label="Confirmare parola"
+        type="password"
+      >
+      </text-input>
+
+      <text-input
+        [control]="fc.address"
+        [showErrorsWhen]="isSubmitted"
+        label="Adresa"
+      >
+      </text-input>
+
+      <default-button text="Inregistrare"></default-button>
+
+      <div class="login">
+        Sunteti deja utilizator? &nbsp;
+        <a routerLink="/login" [queryParams]="{ returnUrl: returnUrl }">
+          Autentificare
+        </a>
+      </div>
+    </form>
+  </div>
+</div>

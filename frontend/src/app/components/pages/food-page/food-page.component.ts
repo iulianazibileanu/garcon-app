@@ -16,7 +16,7 @@ export class FoodPageComponent implements OnInit{
       if(params.id)
       foodService.getFoodById(params.id).subscribe(serverFood => {
         this.food = serverFood;
-      })
+      });
     })
   }
 

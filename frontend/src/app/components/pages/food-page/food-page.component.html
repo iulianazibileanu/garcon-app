@@ -1,10 +1,10 @@
 <app-not-found
-  [visible]="!food.id"
+  [visible]="!food"
   notFoundMessage="Niciun rezultat"
   resetLinkText="Inapoi la meniu"
 >
 </app-not-found>
-<div *ngIf="food.id" class="container">
+<div *ngIf="food" class="container">
   <img [src]="food.imageURL" [alt]="food.name" />
   <div class="details">
     <div class="header">
@@ -14,27 +14,27 @@
       <span class="favorite {{ food.favorite ? '' : 'not' }}">❤</span>
     </div>
     <div class="rating">
-      <star-rating [stars]="food.stars" [size]="1.8"></star-rating>
-      <div class="ingredients">
-        <span>
-          {{ food.ingredients }}
-        </span>
-      </div>
-      <div class="category">
-        <a
-          *ngFor="let category of food.category"
-          routerLink="/category/{{ category }}"
-        >
-          {{ category | titlecase }}
-        </a>
-      </div>
-      <div class="portion">
-        <span> {{ food.portion }} g </span>
-      </div>
-      <div class="price">
-        <span> {{ food.price }} lei </span>
-      </div>
-      <button (click)="addToCart()">Adauga in cos</button>
+      <star-rating [stars]="food.stars" [size]="1.8" />
     </div>
+    <div class="ingredients">
+      <span>
+        {{ food.ingredients }}
+      </span>
+    </div>
+    <div class="category">
+      <a
+        *ngFor="let category of food.category"
+        routerLink="/category/{{ category }}"
+      >
+        {{ category | titlecase }}
+      </a>
+    </div>
+    <div class="portion">
+      <span> {{ food.portion }} g </span>
+    </div>
+    <div class="price">
+      <span> {{ food.price }} lei </span>
+    </div>
+    <button (click)="addToCart()">Adauga in cos</button>
   </div>
 </div>

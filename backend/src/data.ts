@@ -2,7 +2,7 @@ export const sample_foods: any[] = [
   {
   id:'1',
   name:'Piept de pui',
-  price:24,
+  price:24.00,
   portion:180,
   category:['pui'],
   favorite:true,
@@ -13,7 +13,7 @@ export const sample_foods: any[] = [
 {
   id:'2',
   name:'Carnaciori',
-  price:24,
+  price:24.00,
   portion:180,
   category:['porc', 'vita'],
   favorite:false,
@@ -24,7 +24,7 @@ export const sample_foods: any[] = [
 {
   id:'3',
   name:'Ceafa de porc',
-  price:28,
+  price:28.00,
   portion:180,
   category:['porc'],
   favorite:false,
@@ -53,6 +53,83 @@ export const sample_foods: any[] = [
   stars:4.8,
   imageURL:'assets/grilled-pulpa.jpg',
   ingredients:'pulpă de pui dezosată, sare, piper'
+},
+{
+  id:'6',
+  name:'Bruschete cu somon',
+  price:18.50,
+  portion:200,
+  category:['starters'],
+  favorite:false,
+  stars:5,
+  imageURL:'assets/bruschete-cu-somon.jpg',
+  ingredients:'bruschete, guacamole, somon fume, rosii cherry, rucola, ulei de trufe'
+},
+{
+  id:'7',
+  name:'Baby calamari',
+  price:23.00,
+  portion:220,
+  category:['starters'],
+  favorite:true,
+  stars:5,
+  imageURL:'assets/fried-baby-squid.jpg',
+  ingredients:'baby calamari in crusta aurie, sos tartar, lamaie'
+},
+{
+  id:'8',
+  name:'Spaghetti carbonara',
+  price:35.00,
+  portion:350,
+  category:['paste'],
+  favorite:true,
+  stars:4.9,
+  imageURL:'assets/paste-carbonara.jpg',
+  ingredients:'spaghetti, ou, pancetta, parmezan, sare, piper, ulei de trufe'
+},
+{
+  id:'9',
+  name:'Spaghetti bolognese',
+  price:32.00,
+  portion:350,
+  category:['paste'],
+  favorite:false,
+  stars:4.8,
+  imageURL:'assets/paste-bolognese.jpg',
+  ingredients:'spaghetti, carne tocata de vita, sos de rosii, parmezan, sare piper, busuioc proaspat'
+},
+{
+  id:'10',
+  name:'Pizza Capriciosa',
+  price:32.00,
+  portion:750,
+  category:['pizza'],
+  favorite:false,
+  stars:5,
+  imageURL:'assets/pizza-capriciosa.jpg',
+  ingredients:'blat subtire, sos de rosii, oregano, ciuperci, masline, prosciutto cotto, mozarella de bivolita'
+},
+{
+  id:'11',
+  name:'Tiramisu',
+  price:19.00,
+  portion:150,
+  category:['desert'],
+  favorite:true,
+  stars:4,
+  imageURL:'assets/tiramisu.jpg',
+  ingredients:'piscoturi, crema Mascarpone, espresso, cacao, ciocolata'
+},
+{
+  id:'12',
+  name:'Limonada',
+  price:16.00,
+  portion:320,
+  category:['bauturi'],
+  favorite:false,
+  stars:4.5,
+  imageURL:'limonada.jpg',
+  ingredients:'suc de lamaie, miere, menta, gheata'
 }
 ]
 
