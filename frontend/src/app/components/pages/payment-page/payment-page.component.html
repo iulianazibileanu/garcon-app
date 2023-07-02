@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="content">
+    <app-title title="Rezumat comanda" fontSize="1.6rem"></app-title>
+    <div class="summary">
+      <div>
+        <h3>Nume:</h3>
+        <span>{{ order.name }}</span>
+      </div>
+    </div>
+    <order-items-list [order]="order"></order-items-list>
+  </div>
+  <div class="buttons-container">
+    <div class="buttons">
+      <!-- <paypal-button [order]="order"> </paypal-button> -->
+      <app-stripe-payment [order]="order"></app-stripe-payment>
+    </div>
+  </div>
+</div>

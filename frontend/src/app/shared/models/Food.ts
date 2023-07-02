@@ -8,4 +8,5 @@ export class Food {
   stars!:number;
   imageURL!:string;
   ingredients!: string;
+  canReview?: boolean;
 }

@@ -13,28 +13,62 @@
       </span>
       <span class="favorite {{ food.favorite ? '' : 'not' }}">❤</span>
     </div>
-    <div class="rating">
-      <star-rating [stars]="food.stars" [size]="1.8" />
-    </div>
-    <div class="ingredients">
-      <span>
-        {{ food.ingredients }}
-      </span>
-    </div>
-    <div class="category">
-      <a
-        *ngFor="let category of food.category"
-        routerLink="/category/{{ category }}"
-      >
-        {{ category | titlecase }}
-      </a>
-    </div>
-    <div class="portion">
-      <span> {{ food.portion }} g </span>
-    </div>
-    <div class="price">
-      <span> {{ food.price }} lei </span>
-    </div>
-    <button (click)="addToCart()">Adauga in cos</button>
+    <ng-container *ngIf="!reviewMode">
+      <div class="rating">
+        <star-rating [stars]="food.stars" [size]="1.8" />
+      </div>
+      <div class="ingredients">
+        <span>
+          {{ food.ingredients }}
+        </span>
+      </div>
+      <div class="category">
+        <a
+          *ngFor="let category of food.category"
+          routerLink="/category/{{ category }}"
+        >
+          {{ category | titlecase }}
+        </a>
+      </div>
+      <div class="portion">
+        <span> {{ food.portion }} g </span>
+      </div>
+      <div class="price">
+        <span> {{ food.price }} lei </span>
+      </div>
+      <button (click)="addToCart()">Adauga in cos</button>
+    </ng-container>
+    <ng-container *ngIf="reviewMode">
+      <div class="mt-40 align-center">
+        <mat-icon
+          *ngFor="let star of stars; let i = index"
+          [class]="star.class"
+          (mouseover)="changeStyle($event, star, i)"
+          (mouseout)="changeStyle($event, star, i)"
+          (click)="chooseStar(star, i)"
+          fontIcon="star_rate"
+        ></mat-icon>
+      </div>
+      <mat-form-field>
+        <textarea
+          matInput
+          rows="10"
+          placeholder="Recenzie"
+          [formControl]="commentFC"
+          (change)="onCommentChange()"
+        >
+        </textarea>
+      </mat-form-field>
+      <button (click)="fileInput.click()">
+        <span>Adauga fotografie</span>
+        <input
+          #fileInput
+          type="file"
+          (change)="onFileInput($event)"
+          style="display: none"
+        />
+      </button>
+      <button class="review" (click)="submitReview()">Adauga recenzie</button>
+    </ng-container>
   </div>
 </div>

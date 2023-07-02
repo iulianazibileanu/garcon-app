@@ -26,6 +26,15 @@ import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { CheckoutPageComponent } from './components/pages/checkout-page/checkout-page.component';
 import { OrderItemsListComponent } from './components/partials/order-items-list/order-items-list.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { PaymentPageComponent } from './components/pages/payment-page/payment-page.component';
+import { StripePaymentComponent } from './components/partials/stripe-payment/stripe-payment.component';
+import { OrderTrackPageComponent } from './components/pages/order-track-page/order-track-page.component';
+import { MyOrdersComponent } from './components/pages/my-orders/my-orders.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -47,7 +56,11 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     RegisterPageComponent,
     LoadingComponent,
     CheckoutPageComponent,
-    OrderItemsListComponent
+    OrderItemsListComponent,
+    PaymentPageComponent,
+    StripePaymentComponent,
+    OrderTrackPageComponent,
+    MyOrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +68,11 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatTableModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatFormFieldModule,
+    MatInputModule,
     ToastrModule.forRoot({
       timeOut:3000,
       positionClass:'toast-bottom-right',

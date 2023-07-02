@@ -1,17 +1,36 @@
 <table>
   <tr>
     <td colspan="5">
-      <h3>Order Items:</h3>
+      <h3>Produse comandate:</h3>
     </td>
   </tr>
   <tr *ngFor="let item of order.items">
     <td>
       <a routerLink="/food/{{ item.food.id }}">
-        <img [src]="item.food.imageURL" />
+        <img class="food" [src]="item.food.imageURL" />
       </a>
     </td>
     <td>
       {{ item.food.name }}
+      <a
+        routerLink="/food/{{ item.food.id }}"
+        [queryParams]="{ review: 'true', order: order.id }"
+      >
+        <mat-icon
+          *ngIf="item.food.canReview"
+          class="star"
+          fontIcon="star_rate"
+          matTooltip="Adauga o recenzie"
+          [matTooltipPosition]="'above'"
+        ></mat-icon>
+      </a>
+      <mat-icon
+        *ngIf="!item.food.canReview"
+        class="disabled"
+        fontIcon="star_rate"
+        matTooltip="Ai lasat deja o recenzie!"
+        [matTooltipPosition]="'above'"
+      ></mat-icon>
     </td>
     <td>{{ item.food.price }} lei</td>
     <td>

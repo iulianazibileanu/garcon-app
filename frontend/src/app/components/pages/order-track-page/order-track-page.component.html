@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="content" *ngIf="order">
+    <h1>Comanda #{{ order.id }}</h1>
+    <div class="details">
+      <div><strong>Data</strong> {{ order.createdAt | date : "medium" }}</div>
+      <div><strong>Nume</strong> {{ order.name }}</div>
+      <div><strong>Status</strong> {{ order.status }}</div>
+      <div><strong>Tip plata</strong> {{ order.isCash ? "Cash" : "Card" }}</div>
+      <div *ngIf="order.paymentId">
+        <strong>Payment ID</strong> {{ order.paymentId }}
+      </div>
+    </div>
+
+    <order-items-list [order]="order"></order-items-list>
+  </div>
+</div>

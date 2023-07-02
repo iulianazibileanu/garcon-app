@@ -1,7 +1,6 @@
 div {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
   margin-bottom: 1.5rem;
 }
 
@@ -33,4 +32,12 @@ div button {
 div button:hover {
   opacity: 1;
   cursor: pointer;
+}
+
+img {
+  margin: 0 auto;
+}
+
+.logo {
+  margin: 0;
 }

@@ -20,9 +20,24 @@ td {
   height: 3rem;
 }
 
-td img {
+td .food {
   width: 3rem;
   height: 3rem;
   object-fit: cover;
   border-radius: 100rem;
+}
+
+td .star {
+  font-size: 1.8rem;
+  color: #007b00;
+  cursor: pointer;
+}
+
+td .star:hover {
+  color: #03c603;
+}
+
+td .disabled {
+  font-size: 1.8rem;
+  color: gray;
 }

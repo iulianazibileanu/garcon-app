@@ -128,7 +128,7 @@ export const sample_foods: any[] = [
   category:['bauturi'],
   favorite:false,
   stars:4.5,
-  imageURL:'limonada.jpg',
+  imageURL:'assets/limonada.jpg',
   ingredients:'suc de lamaie, miere, menta, gheata'
 }
 ]

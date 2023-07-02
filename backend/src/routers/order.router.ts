@@ -34,8 +34,8 @@ router.get('/newOrderForCurrentUser', asyncHandler( async (req:any,res ) => {
     else res.status(HTTP_BAD_REQUEST).send();
 }))
 
-router.post('/pay', asyncHandler( async (req:any, res) => {
-    const {paymentId} = req.body;
+router.post('/payment', asyncHandler( async (req:any, res) => {
+    const {paymentId, isCash} = req.body;
     const order = await getNewOrderForCurrentUser(req);
     if(!order){
         res.status(HTTP_BAD_REQUEST).send('Order Not Found!');
@@ -43,6 +43,7 @@ router.post('/pay', asyncHandler( async (req:any, res) => {
     }
 
     order.paymentId = paymentId;
+    order.isCash = isCash;
     order.status = OrderStatus.PAYED;
     await order.save();
 
@@ -52,6 +53,11 @@ router.post('/pay', asyncHandler( async (req:any, res) => {
 router.get('/track/:id', asyncHandler( async (req, res) => {
     const order = await OrderModel.findById(req.params.id);
     res.send(order);
+}))
+
+router.get('/', asyncHandler( async (req, res) => {
+    const orders = await OrderModel.find();
+    res.send(orders);
 }))
 
 async function getNewOrderForCurrentUser(req: any) {

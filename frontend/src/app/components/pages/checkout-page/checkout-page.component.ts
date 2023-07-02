@@ -47,10 +47,10 @@ export class CheckoutPageComponent implements OnInit {
 
     this.orderService.create(this.order).subscribe({
       next:() => {
-        this.router.navigateByUrl('/pay');
+        this.router.navigateByUrl('/payment');
       },
       error:(errorResponse) => {
-        this.toastrService.error(errorResponse.error, 'Cart');
+        this.toastrService.error(errorResponse.error, 'Trebuie sa fii autentificat.');
       }
     })
   }

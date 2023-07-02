@@ -111,3 +111,30 @@ button:hover {
   opacity: 0.9;
   cursor: pointer;
 }
+
+.review {
+  margin-top: 10px;
+  background: rgb(3, 127, 204);
+}
+
+mat-form-field {
+  margin-top: 20px;
+}
+
+mat-icon {
+  cursor: pointer;
+  opacity: 0.3;
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+  color: red;
+}
+
+.star-hovered {
+  font-weight: 900;
+}
+
+.first, .second, .third, .fourth, .fifth {
+  color: rgb(255, 55, 0);
+  opacity: 1;
+}

@@ -43,18 +43,11 @@ router.post("/login", asyncHandler(
     const {email, password} = req.body;
     const user = await UserModel.findOne({email});
 
-
-    if(user && password === user.password) {
+    if(user && (await bcrypt.compare(password,user.password))) {
       res.send(generateTokenResponse(user));
-    } else{
+    }else{
       res.status(HTTP_BAD_REQUEST).send("Email sau parola invalide!");
     }
-
-    // if(user && (await bcrypt.compare(password,user.password))) {
-    //   res.send(generateTokenResponse(user));
-    // }else{
-    //   res.status(HTTP_BAD_REQUEST).send("Email sau parola invalide!");
-    // }
   
   }
 ))

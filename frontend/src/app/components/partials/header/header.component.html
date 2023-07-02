@@ -9,8 +9,8 @@
         <li *ngIf="isAuth" class="menu-container">
           <a routerLink="/dashboard">{{ user.name }}</a>
           <div class="menu">
-            <a routerLink="/profile">Profil</a>
-            <a routerLink="/orders">Comenzi</a>
+            <!-- <a routerLink="/profile">Profil</a> -->
+            <a routerLink="/my-orders">Comenzi</a>
             <a (click)="logout()">Logout</a>
           </div>
         </li>
